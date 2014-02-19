@@ -60,8 +60,8 @@ class RPNCalculator
     raise ArgumentError, 'Invalid number.' if digit.nil?
     digit * 10 ** order
   end
-
 end
 
 # This allows program to accept command line arguments, if present
+# If no arguments are present, either the user messed up or the specs are being run
 p RPNCalculator.evaluate(ARGV.first) unless ARGV.empty?
