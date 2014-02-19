@@ -45,7 +45,7 @@ The program checks for errors at multiple points.
 
 The program needs at least three elements in the input string to run (two numbers and an operation). The program will throw an error if the statement passed in contains less than three elements.
 
-```
+```sh
 $ ruby rpn.rb  '1 +'
 => rpn.rb:19:in `evaluate': Not enough arguments. (ArgumentError)
 ```
