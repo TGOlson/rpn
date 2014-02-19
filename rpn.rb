@@ -20,9 +20,6 @@ class RPNCalculator
     output = []
 
     statement.split.each do |item|
-      # This `include?` call is better than regex in this case, due to the ease of error checking.
-      # If an item is not a digit and not an operation it will be sent to the `to_i` method, where a `ArgumentError` will be raised.
-      # For example, a decimal or letter will raise an error, where it might not using a non-digit regex like `/\D/`.
       if OPERATIONS.include?(item)
         item = perform_operation(output.pop(2), item)
       end
