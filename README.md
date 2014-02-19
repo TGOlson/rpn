@@ -22,7 +22,10 @@ From [Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation)
 
 ```
 '1 2 +' = 3
+'4 2 /'' = 2
+'2 3 4 + *' = 14
 '3 4 + 5 6 + *' = 77
+'13 4 -' = 9
 ```
 
 ## How to Run
@@ -45,7 +48,7 @@ The program checks for errors at multiple points.
 
 The program needs at least three elements in the input string to run (two numbers and an operation). The program will throw an error if the statement passed in contains less than three elements.
 
-```sh
+```
 $ ruby rpn.rb  '1 +'
 => rpn.rb:19:in `evaluate': Not enough arguments. (ArgumentError)
 ```
@@ -74,33 +77,17 @@ $ ruby rpn.rb '1 + 4'
 
 All methods are class methods of the ```RPNCalculator``` class.
 
-```
-::evaluate(statement)
-```
+```::evaluate(statement)``` Takes in an RPN formatted statement and returns a solution. This is called to evaluate statements that are passed in via the command line. Produces an error if the statement passed in does not contain enough arguments.
 
-Takes in an RPN formatted statement and returns a solution. This is called to evaluate statements that are passed in via the command line. Produces an error if the statement passed in does not contain enough arguments.
+```::to_i(string)``` Converts a given string to an integer. Only works for positive or negative integer strings, and returns the same integer if an integer is passed in.
 
-```
-::to_i(string)
-```
-
-Converts a given string to an integer. Only works for positive or negative integer strings, and returns the same integer if an integer is passed in.
-
-**Private Methods **
+**Private Methods**
 
 These methods are used to helper the two main methods, listed above.
 
-```
-::perform_operation(numbers, operation)
-```
+```::perform_operation(numbers, operation)``` This is a helper method to ```evaluate```, which takes in two numbers and an operation, and returns the evaluation of the numbers and operation. It raises an error unless there is exactly two numbers present.
 
-This is a helper method to ```evaluate```, which takes in two numbers and an operation, and returns the evaluation of the numbers and operation. It raises an error unless there is exactly two numbers present.
-
-```
-::map_current_char(char, order)
-```
-
-This is a helper method to ```to_i```, which takes in a character to map to a digit, as well as the current order of magnitude for the digit. It returns a digit, and raises an error if the character passed in is not a single digit in string format.
+```::map_current_char(char, order)``` This is a helper method to ```to_i```, which takes in a character to map to a digit, as well as the current order of magnitude for the digit. It returns a digit, and raises an error if the character passed in is not a single digit in string format.
 
 ## Tests
 
