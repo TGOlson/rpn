@@ -2,7 +2,7 @@
 
 by [Tyler Olson](http://tgolson.com)
 
-Calculates statements given in [reverse polish notation format](#link).
+Calculates statements given in [reverse polish notation format](http://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
 Written using Ruby version 2.0.0p353
 
@@ -15,6 +15,10 @@ Written using Ruby version 2.0.0p353
 * Works with negative numbers and statements that evaluate to negative.
 
 ## Examples of RPN format:
+
+From [Wikipedia](http://en.wikipedia.org/wiki/Reverse_Polish_notation)
+
+> Reverse Polish notation (RPN) is a mathematical notation in which every operator follows all of its operands...
 
 ```
 '1 2 +' = 3
@@ -37,7 +41,7 @@ $ ruby rpn.rb '2 3 4 + *'
 
 The program checks for errors at multiple points.
 
-** Number of Arguments **
+**Number of Arguments**
 
 The program needs at least three elements in the input string to run (two numbers and an operation). The program will throw an error if the statement passed in contains less than three elements.
 
@@ -46,9 +50,9 @@ $ ruby rpn.rb  '1 +'
 => rpn.rb:19:in `evaluate': Not enough arguments. (ArgumentError)
 ```
 
-** Invalid Numbers **
+**Invalid Numbers**
 
-Passing in illegal numbers (for example, letters or decimals) will produce an error for illegal characters. This error is produced while mapping string characters to numbers, and so it is available
+Passing in invalid numbers (for example, letters or decimals) will produce an error for illegal characters. This error is produced while mapping string characters to numbers, and so it is run as an independent check on each character.
 
 ```
 $ ruby rpn.rb  'a b +'
@@ -57,7 +61,7 @@ $ ruby rpn.rb  'a b +'
 $ ruby rpn.rb  '2 3.0 +'
 => rpn.rb:57:in `map_current_char': Invalid number. (ArgumentError)
 ```
-** Illegal RPN Format
+**Illegal RPN Format**
 
 Lastly, the program will produce a general error for illegal RPN formats. For example, an operator that is not preceded by two numbers.
 
@@ -70,23 +74,31 @@ $ ruby rpn.rb '1 + 4'
 
 All methods are class methods of the ```RPNCalculator``` class.
 
-```::evaluate(statement)```
+```
+::evaluate(statement)
+```
 
 Takes in an RPN formatted statement and returns a solution. This is called to evaluate statements that are passed in via the command line. Produces an error if the statement passed in does not contain enough arguments.
 
-```::to_i(string)```
+```
+::to_i(string)
+```
 
 Converts a given string to an integer. Only works for positive or negative integer strings, and returns the same integer if an integer is passed in.
 
-** Private Methods **
+**Private Methods **
 
 These methods are used to helper the two main methods, listed above.
 
-```::perform_operation(numbers, operation)```
+```
+::perform_operation(numbers, operation)
+```
 
 This is a helper method to ```evaluate```, which takes in two numbers and an operation, and returns the evaluation of the numbers and operation. It raises an error unless there is exactly two numbers present.
 
-```::map_current_char(char, order)```
+```
+::map_current_char(char, order)
+```
 
 This is a helper method to ```to_i```, which takes in a character to map to a digit, as well as the current order of magnitude for the digit. It returns a digit, and raises an error if the character passed in is not a single digit in string format.
 
