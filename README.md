@@ -96,16 +96,16 @@ All methods included in this program were written using test driven development 
 ```assert``` statements are used to test the expected output of a method:
 
 ```ruby
-assert 'it can handle a number less than ten' do
-  RPNCalculator.to_i('1') == 1
+assert 'it can handle a simple addition statement' do
+  RPNCalculator.evaluate('1 2 +') == 3
 end
 ```
 
 ```assert_thrown``` statements are used if an error is expected to be raised:
 
 ```ruby
-assert_thrown 'it returns an error for decimals' do
-  RPNCalculator.to_i('12.0')
+assert_thrown 'it returns an error for invalid arguments' do
+  RPNCalculator.evaluate('a b +')
 end
 ```
 
