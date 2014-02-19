@@ -83,7 +83,7 @@ All methods are class methods of the ```RPNCalculator``` class.
 
 **Private Methods**
 
-These methods are used to helper the two main methods, listed above.
+These methods are used to help the two main methods, listed above.
 
 ```::perform_operation(numbers, operation)``` This is a helper method to ```evaluate```, which takes in two numbers and an operation, and returns the evaluation of the numbers and operation. It raises an error unless there is exactly two numbers present.
 
@@ -91,7 +91,7 @@ These methods are used to helper the two main methods, listed above.
 
 ## Tests
 
-All methods included in this program were written using test driven development using custom ```assert``` and ```assert_thrown``` statements as the test framework. This is a small program, so the custom test methods were chosen in liue of a larger test framework, such as ```RSpec```.
+All methods included in this program were written using test driven development using custom ```assert``` and ```assert_thrown``` statements as the test framework. This is a small program, so the custom test methods were chosen in lieu of a larger test framework, such as ```RSpec```.
 
 ```assert``` statements are used to test the expected output of a method:
 
