@@ -25,4 +25,6 @@ assert_thrown 'it returns an error for invalid arguments' do
   RPNCalculator.evaluate('a b +')
 end
 
-# p RPNCalculator.evaluate('1 1 1 +')
+assert_thrown 'it returns an error for illegal RPN formatting' do
+  RPNCalculator.evaluate('1 + 4')
+end
